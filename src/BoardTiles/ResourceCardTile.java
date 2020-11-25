@@ -1,12 +1,14 @@
 package BoardTiles;
+import Monopoly.Player;
+
 
 public class ResourceCardTile extends BoardTile
 {
 	public String name;
 	
-	public BoardTile(String _name)
+	public ResourceCardTile(String _name)
 	{
-		this.name = _name;
+		super(_name);
 	}
 	
 	public void PlayerLandedOnTile(Player player)

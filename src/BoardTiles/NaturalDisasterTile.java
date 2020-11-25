@@ -1,4 +1,5 @@
 package BoardTiles;
+import Monopoly.Player;
 
 public class NaturalDisasterTile extends BoardTile
 {
@@ -6,7 +7,7 @@ public class NaturalDisasterTile extends BoardTile
 	
 	public NaturalDisasterTile(String _name)
 	{
-		this.name = _name;
+		super(_name);
 	}
 	
 	public void PlayerLandedOnTile(Player player)

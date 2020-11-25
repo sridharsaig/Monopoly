@@ -1,3 +1,5 @@
+package Monopoly;
+
 import java.util.Scanner;
 
 public class PlayerInteracter
@@ -7,17 +9,17 @@ public class PlayerInteracter
 	
 	public PlayerInteracter()
 	{
-		
 	}
 	
 	public void initSetup(Board _board)
 	{
-		this.Board = _board;
+		Board = _board;
 		int players = promptForInteger("Enter number of players");
 		
 		for(int i = 0; i < players; i++)
 		{
-			this.Board.Players.add(createPlayerPrompt());
+			Player p = createPlayerPrompt();
+			Board.Players.add(p);
 		}
 	}
 	
@@ -35,21 +37,14 @@ public class PlayerInteracter
 			
 			isValid = false;
 			
-			System.out.print("{%s}: ");
+			System.out.printf("{%s}: ", promptMessage);
 			line = in.nextLine();
 			
-			try
-			{
-				result = Integer.parseInt(line);
-			}
-			catch(Exception e)
-			{
-				isValid = false;
-			}
 			
-		} while(!isValid);
+			
+		} while(!isNumeric(line));
 		
-		return result;
+		return Integer.parseInt(line);
 	}
 	
 	public static String promptForString(String promptMessage)
@@ -79,5 +74,18 @@ public class PlayerInteracter
 	{
 		String name = promptForString("Enter a player name for character");
 		return new Player(this.Board, name, 1500);
+	}
+	
+	private static boolean isNumeric(String input)
+	{
+		try
+		{
+			Integer.parseInt(input);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	}
 }

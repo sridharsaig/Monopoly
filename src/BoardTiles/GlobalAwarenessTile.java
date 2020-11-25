@@ -1,4 +1,5 @@
 package BoardTiles;
+import Monopoly.Player;
 
 public class GlobalAwarenessTile extends BoardTile
 {

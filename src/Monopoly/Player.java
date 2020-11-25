@@ -1,15 +1,25 @@
+package Monopoly;
+
+import java.util.ArrayList;
+
+import BoardTiles.BoardTile;
+
 public class Player
 {
 	private final int STARTING_MONEY = 1500;
 	private int funds = STARTING_MONEY;
-	
-	private String name = null;
-	private int playerPositionIndex = 0;
 	private Board board = null;
+
+	public String Name = null;
 	
+	public boolean InJail = false;
+	public boolean RolledDouble = false;
+	public int playerPositionIndex = 0;
+	public ArrayList<BoardTile> OwnedProperties = new ArrayList<BoardTile>();
+
 	public Player(Board _board, String _name, int _startingFunds)
 	{
-		this.name = _name;
+		this.Name = _name;
 		this.funds = _startingFunds;
 		this.board = _board;
 	}
@@ -21,7 +31,7 @@ public class Player
 	
 	public String getName()
 	{
-		return this.name;
+		return this.Name;
 	}
 	
 
@@ -46,7 +56,10 @@ public class Player
 		
 	}
 	
-	
+	private void AddProperty(BoardTile tile)
+	{
+		
+	}
 
 
 }
